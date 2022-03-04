@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  border: 10px solid;
+  margin: 2rem;
+}
+
+.box {
+  min-width: 150px;
+  height: 150px;
+  border: 3px solid;
+  background: #cba;
+  padding: 0rem;
+  font-size: 2rem;
+  line-height: 150px;
+  text-align: center;
+  color: #a98;
+  transition: all 1s;
+  
+}
+
+/* write rotate class here */
+.spin {
+  transform: rotate(360deg) scale(.8);
+  border-radius: 25%;
+  background-color:#1b2661;
+
+}
