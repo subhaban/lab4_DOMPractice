@@ -2,6 +2,20 @@
 let myButton = document.querySelector(".make-boxes");
 myButton.addEventListener("click", renderBoxes);
 
+// Initialising the counter
+let counter = 0;
+let boxCountEl = document.querySelector(".count");
+
+// Display function to track njumber of boxes clicked
+function countDisplay() {
+  if (counter == 1) {
+    boxCountEl.innerHTML = (`${counter} box clicked`);
+  } else {
+    boxCountEl.innerHTML = (`${counter} boxes clicked`);
+  }
+
+}
+
 //get the number of boxes to make from user
 function getNumBoxes() {
   var numBoxes = Number(prompt("how many boxes?"));
@@ -12,6 +26,7 @@ function getNumBoxes() {
   return numBoxes;
 }
 
+
 //Makes boxes based on user input.
 //We use tempHolder to build the boxes in memory only.
 function makeBoxes() {
@@ -20,29 +35,24 @@ function makeBoxes() {
 
   // Repeat Loop
   for (let i = 1; i <= numBoxes; i++) {
-    
+
     let box = document.createElement("DIV");
     let txt = document.createTextNode("Box #" + i);
     box.className = "box";
-    let para = document.createElement("p");
-    para.className ="para";
 
-    let counter = 0;
-   
     /* write event listener here */
 
     box.addEventListener('click', (e) => {
       e.target.classList.toggle('spin');
-      box.innerHTML= "Clicked";
-     counter = counter +1 ;
-      let paratxt = document.createTextNode(counter + "boxes clicked" );
-     para.appendChild(paratxt);
+      box.innerHTML = "Clicked";
+      counter++;
+      countDisplay();
+
     });
     
     box.appendChild(txt);
     tempHolder.appendChild(box);
-   
-   
+
   } //end loop
 
   return tempHolder;
